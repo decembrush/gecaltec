@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 $(document).ready(function(){
+    
+    
         $("#form-login").submit(function(){
                
             var validator = $("#form-login").validate({ /* settings */ });
@@ -12,17 +16,28 @@ $(document).ready(function(){
                 validator.focusInvalid();
                 return false;
             }   
-               
-            $.ajax({
-                type: "POST",
-                url: "Login/validateLogin",
+            
+            var path = $("#path").val() + "Login/validateLogin"; 
+            
+            //alert(path);
+              
+            $.ajax({                
+                type: "POST",    
+                url: path,
                 datatype: "Json",
                 data: $(this).serialize(),
                 success: function (response) {
-                    if (response.message !== "") {
-                        alert(response.message);
-                    }
-                }
+                    
+                    //alert(response.message);
+                    
+                    if (response.message == "") {
+                        document.location.href = response.redirect;
+                    }else{
+                        alert(response.message); 
+                        return false;
+                    }                  
+                    
+                }                
             });           
 
             return false;

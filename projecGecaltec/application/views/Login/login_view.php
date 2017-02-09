@@ -53,7 +53,8 @@
 							</h4>
 							<div class="divider"></div>
 						</div>
-                                            <form id="form-login" type="post" action="/">
+                                            <form id="form-login" type="post" action="">
+                                                <input type="hidden" name="path" id="path" value="<?php echo base_url(); ?>" />
 						  <div class="form-ch">
 							  <div class="form-group">
 								<label for="lgUsuario">Usuario ó Correo Electrónico</label>

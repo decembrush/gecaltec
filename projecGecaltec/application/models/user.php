@@ -3,11 +3,12 @@ Class User extends CI_Model
 {
     function login($username, $password)
     {
-      $this -> db -> select('Id, User, Password, Mail');
+      $this -> db -> select('users.Id, User, Password, Mail, role.Name');
       $this -> db -> from('users');
-      $this -> db -> where("User='$username' OR Mail='$username')");
-      $this -> db -> where('ser', $username);
-      $this -> db -> where('Password', MD5($password));
+      $this -> db -> where("(User='$username' OR Mail='$username')");
+      //$this -> db -> where('ser', $username);
+      $this -> db -> where('Password', $password);
+      $this -> db -> join('role', "users.IdRol = role.Id");
       //$this -> db -> limit(1);
 
       $query = $this->db->get();
