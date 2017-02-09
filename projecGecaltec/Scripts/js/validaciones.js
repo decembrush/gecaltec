@@ -71,6 +71,37 @@ $(function(){
 			}
 		});
 	});
+        
+        
+        $("#btn_accountUser").on("click", function(){
+		$("#form-account").validate({
+			rules:{
+				nameUser:{
+					required: true
+				},
+				mailUser:{
+					required:true
+				},
+                                passwordUserNewRepeat: {
+                                    equalTo: "#passwordUserNew"
+                                }
+			},
+			messages:
+			{
+				nameUser: {
+					required: 'Por favor, ingresa el usuario'
+
+				},
+				mailUser:{
+					required: 'Por favor, ingresa el correo electronico.'
+				},
+                                passwordUserNewRepeat: {
+                                    equalTo: "La contraseñas no coinciden."
+                                }
+			}
+		});
+	});
+        
 
 });
 

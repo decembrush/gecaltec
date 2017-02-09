@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Gecaltec | Administrador</title>
-	<meta name="viewport" content="width=device-width, user-scalable=no, 
-              initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Recordar Contraseña</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>Content/img/favicon.ico">
+
 	<!--[[INICIO]]SCRIPTS-->
 
 	<link rel="stylesheet" href="<?php echo base_url();?>Content/css/bootstrap.min.css">
@@ -22,11 +22,12 @@
 	<script src="<?php echo base_url();?>Scripts/js/jquery.min.js"></script>
 	<script src="<?php echo base_url();?>Scripts/js/plugins/jquery.validate.min.js"></script>
 	<script src="<?php echo base_url();?>Scripts/js/bootstrap.min.js"></script>
+
 	<script src="<?php echo base_url();?>Scripts/js/script.js"></script>
 	<!--[[FIN]]SCRIPTS-->
-        
-        <script src="<?php echo base_url();?>Scripts/js/Jspages/JsLogin.js"></script>
 
+        <script src="<?php echo base_url();?>Scripts/js/Jspages/JsRememberPassword.js"></script>
+        
 </head>
 <body class="cuerpo">
 
@@ -35,7 +36,7 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="row">
 				<div class="col-md-4 col-sm-4 col-xs-4">
-					<a class="" href="/index"> <img src="<?php echo base_url();?>Content/img/logo.png" class="logo" alt=""> </a>
+					<a class="" href="/"> <img src="<?php echo base_url();?>Content/img/logo.png" class="logo" alt=""> </a>
 				</div>
 
 			</div>
@@ -49,27 +50,21 @@
 					<div class="cnt-login">
 						<div class="section-title">
 							<h4>
-								Iniciar Sesión
+								Recordar Contraseña
 							</h4>
+							<p>Ingresa el correo electrónico registrado para recordar la contraseña.</p>
 							<div class="divider"></div>
 						</div>
-                                            <form id="form-login" type="post" action="">
-                                                <input type="hidden" name="path" id="path" value="<?php echo base_url(); ?>" />
+						<form id="form-rec">
+                                                    
+                                                    <input type="hidden" name="path" id="path" value="<?php echo base_url(); ?>" />
 						  <div class="form-ch">
 							  <div class="form-group">
-								<label for="lgUsuario">Usuario ó Correo Electrónico</label>
-								<input type="text" class="form-control" id="lgUsuario" name="lgUser" required >
-							  </div>
-							  <div class="form-group">
-								<label for="lgPsw">Contraseña</label>
-								<input type="password" class="form-control" id="lgPsw" name="lgPsw" required>
-							  </div>
-							  <div class="text-center mg-bottom">
-								<a href="<?php echo base_url();?>RememberPassword/">¿Olvidaste tu contraseña?</a>
+								<label for="recEmail">Correo Electrónico</label>
+								<input type="email" class="form-control" id="recEmail" name="recEmail" required>
 							  </div>
 							  <div class="text-center">
-							  	<input type="submit" id="btnIniciarSesion" class="btn btn-ch" value="Iniciar Sesión">
-
+								<input type="submit" id="btnRecordar" class="btn btn-ch" value="Recordar Contraseña">
 							  </div>
 							</div>
 						</form>
@@ -86,8 +81,6 @@
 	</footer>
 
 	<script src="<?php echo base_url();?>Scripts/js/validaciones.js"></script>
-
-
 
 </body>
 </html>

@@ -17,7 +17,7 @@ class Login extends CI_Controller {
     
     function validateLogin(){
         
-        header('Content-Type: application/json');
+        //header('Content-Type: application/json');
         
         
         //return "exitoso";

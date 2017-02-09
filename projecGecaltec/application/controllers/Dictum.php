@@ -22,6 +22,8 @@ class Dictum extends CI_Controller {
     function index(){
         if($this->session->userdata('logged_in'))
         {
+            //print_r($this->session->all_userdata());
+            
             $content = $this->load->view('Dictum/dictum_view', "", true);
 
             // Pass to the master view

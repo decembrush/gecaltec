@@ -48,14 +48,14 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="row">
 				<div class="col-md-4 col-sm-4 col-xs-4">
-					<a class="" href="Dictum/"> <img src="<?php echo base_url();?>Content/img/logo.png" class="logo" alt=""> </a>
+					<a class="" href="<?php echo base_url();?>Dictum/"> <img src="<?php echo base_url();?>Content/img/logo.png" class="logo" alt=""> </a>
 				</div>
 				<ul class="nav navbar-nav col-md-8 col-sm-8 col-xs-8 ">
 						<li class="dropdown pull-right">
-							<a href="#" class="dropdown-toggle text-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bienvenido <br> <small>charlie</small> <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle text-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bienvenido <br> <small><?php $data = $this->session->userdata('logged_in'); echo $data["User"]; ?></small> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="cuenta.php">Mi cuenta</a></li>
-								<li><a href="Dictum/">Dictamenes</a></li>
+								<li><a href="<?php echo base_url();?>Account/">Mi cuenta</a></li>
+								<li><a href="<?php echo base_url();?>Dictum/">Dictamenes</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="<?php echo base_url();?>Login/logout">Cerrar Sesión</a></li>
 							</ul>
