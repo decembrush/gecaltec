@@ -6,7 +6,8 @@
 
 
 $(document).ready(function(){
-    
+    //$("#alertMessage").fadeTo(2000, 500).slideUp(500, function(){    
+    //$("#alertMessage").slideUp(500);});
     
         $("#form-login").submit(function(){
                
@@ -33,7 +34,9 @@ $(document).ready(function(){
                     if (response.message == "") {
                         document.location.href = response.redirect;
                     }else{
-                        alert(response.message); 
+                        $("#alertMessage").removeAttr("style");
+                        $("#message").html(response.message);
+                        //alert(response.message); 
                         return false;
                     }                  
                     

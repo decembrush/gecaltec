@@ -11,12 +11,12 @@ $(window).scroll(function(){
 
 //[[INICIO]]FULL-ALTO-DIV
 //var winWidth = $(window).width();
-$(function(){
-    $('.fullHeight').css({'height':($(document).height())+'px'});
-    $(window).resize(function(){
-        $('.fullHeight').css({'height':($(document).height())+'px'});
-    });
-});
+//$(function(){
+  //  $('.fullHeight').css({'height':($(document).height())+'px'});
+    //$(window).resize(function(){
+      //  $('.fullHeight').css({'height':($(document).height())+'px'});
+    //});
+//});
 //[[FIN]]FULL-ALTO-DIV
 
 //[INICIO]SCRIPT-INPUT-FILE

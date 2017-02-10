@@ -54,6 +54,10 @@
 							<div class="divider"></div>
 						</div>
                                             <form id="form-login" type="post" action="">
+                                                <div class="alert alert-danger" id="alertMessage" style="display: none;" role="alert">
+                                                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                                                    <span id="message"></span>
+                                                </div>
                                                 <input type="hidden" name="path" id="path" value="<?php echo base_url(); ?>" />
 						  <div class="form-ch">
 							  <div class="form-group">
