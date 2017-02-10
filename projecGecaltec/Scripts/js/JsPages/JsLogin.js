@@ -37,7 +37,7 @@ $(document).ready(function(){
                         $("#alertMessage").removeAttr("style");
                         $("#message").html(response.message);
                         //alert(response.message); 
-                        return false;
+                        
                     }                  
                     
                 }                

@@ -23,6 +23,24 @@ Class User extends CI_Model
         }
     }
     
+    function verifyUserByMailAndNameUser($username, $mail, $id)
+    {
+        $this -> db -> select('users.Id, User, Password, Mail');
+        $this -> db -> from('users');
+        $this -> db -> where("(User='$username' OR Mail='$mail')");        
+        $this -> db -> where("Id != '$id'");        
+        $query = $this->db->get();
+
+        if($query -> num_rows() > 0)
+        {
+          return false;
+        }
+        else
+        {
+          return true;
+        }
+    }
+    
     
     function findUserByMail($mail)
     {

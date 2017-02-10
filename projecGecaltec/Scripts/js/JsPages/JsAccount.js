@@ -19,7 +19,8 @@ $(document).ready(function(){
                         
             var path = $("#path").val() + "Account/updateAccountUser"; 
             
-            //alert(path);
+            $("#btn_accountUser").val("Por favor espere ...").attr("disabled", "disabled"); 
+            //walert(path);
               
             $.ajax({                
                 type: "POST",    
@@ -27,13 +28,26 @@ $(document).ready(function(){
                 datatype: "Json",
                 data: $(this).serialize(),
                 success: function (response) {
-                    
-                      alert(response.message);            
+                    if (response.status) {
+                        $("#alertMessageSuccess").removeAttr("style");
+                        $("#alertMessageDanger").css({"display": "none"});
+                        $("#messageSuccess").html(response.message);
+                        
+                        $("#btn_accountUser").val("Guardar Cambios").removeAttr("disabled", "disabled");                        
+                        
+                    }else{
+                        $("#alertMessageDanger").removeAttr("style");
+                        $("#alertMessageSuccess").css({"display": "none"});
+                        $("#messageDanger").html(response.message);
+                        
+                        $("#btn_accountUser").val("Guardar Cambios").removeAttr("disabled", "disabled"); 
+                        
+                    }           
                     
                 }                
             });           
 
-            return true;
+            return false;
         });
 });
 

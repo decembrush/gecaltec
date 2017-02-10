@@ -26,11 +26,25 @@ $(document).ready(function(){
                 datatype: "Json",
                 data: $(this).serialize(),
                 success: function (response) { 
-                    alert(response.message); 
+                    
+                    if (response.status) {
+                        $("#alertMessageSuccess").removeAttr("style");
+                        $("#alertMessageDanger").css({"display": "none"});
+                        $("#messageSuccess").html(response.message);
+                        $("#btnRecordar").val("Recordar Contraseña").removeAttr("disabled", "disabled");                        
+                        
+                    }else{
+                        $("#alertMessageDanger").removeAttr("style");
+                        $("#alertMessageSuccess").css({"display": "none"});
+                        $("#messageDanger").html(response.message);
+                        $("#btnRecordar").val("Recordar Contraseña").removeAttr("disabled", "disabled"); 
+                        
+                    }
+                    //alert(response.message); 
                 }                
             });          
-
-            return true;
+            return false;
+            
         });
 });
 

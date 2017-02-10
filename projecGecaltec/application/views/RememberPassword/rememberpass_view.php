@@ -56,7 +56,14 @@
 							<div class="divider"></div>
 						</div>
 						<form id="form-rec">
-                                                    
+                                                    <div class="alert alert-danger" id="alertMessageDanger" style="display: none;" role="alert">
+                                                        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                                                        <span id="messageDanger"></span>
+                                                    </div>
+                                                    <div class="alert alert-success" id="alertMessageSuccess" style="display: none;" role="alert">
+                                                        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                                                        <span id="messageSuccess"></span>
+                                                    </div>
                                                     <input type="hidden" name="path" id="path" value="<?php echo base_url(); ?>" />
 						  <div class="form-ch">
 							  <div class="form-group">

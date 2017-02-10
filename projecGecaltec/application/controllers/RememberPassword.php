@@ -46,16 +46,16 @@ class RememberPassword extends CI_Controller {
 
                 $this->output
                         ->set_content_type("application/json")
-                        ->set_output(json_encode(array('message' => 'La nueva contraseña fue enviada exitosamente.')));
+                        ->set_output(json_encode(array('status'=> true, 'message' => 'La nueva contraseña fue enviada exitosamente.')));
             } else {
                 $this->output
                         ->set_content_type("application/json")
-                        ->set_output(json_encode(array('message' => 'No hay ninguna cuenta asociada con este correo electrónico..')));
+                        ->set_output(json_encode(array('status'=> false,'message' => 'No hay ninguna cuenta asociada con este correo electrónico..')));
             }
         } catch (Exception $exc) {
             $this->output
                     ->set_content_type("application/json")
-                    ->set_output(json_encode(array('message' => $exc->getTraceAsString())));
+                    ->set_output(json_encode(array('status'=> false, 'message' => $exc->getTraceAsString())));
         }
     }
 
