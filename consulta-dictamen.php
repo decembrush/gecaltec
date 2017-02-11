@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = 'Contacto';
+	$pageTitle = 'Consultar Dictamen';
 	include("cabecera.php");
 ?>
 
