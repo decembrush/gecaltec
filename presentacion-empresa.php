@@ -15,6 +15,9 @@
 					<div class="grid_6 wow fadeInLeft">
 						<h2>Quienes Somos</h2>
 						<h3>Sobre Nosotros</h3>
+						<P>
+							Prestamos servicios de inspección para Instalaciones eléctricas de uso final básicas o generales incluyendo ambientes especiales tales como ascensores, sistema contra incendio, jacuzzis, piscinas, sitios de alta concentración de personas, entre otras similares. También se incluye instalaciones eléctricas de distribución y transformación asociados al uso final.
+						</P>
 						<p>
 						El objeto social principal del <strong>GRUPO EMPRESARIAL DE CALIDAD Y TECNOLOGÍA S.A.S.</strong>, es la prestación de los servicios de inspección para Instalaciones eléctricas de uso final básicas o generales incluyendo ambientes especiales tales como ascensores, sistema contra incendio, jacuzzis, piscinas, sitios de alta concentración de personas, entre otras similares. También se incluye instalaciones eléctricas de distribución y transformación asociados al uso final, de acuerdo al Reglamento Técnico de Instalaciones Eléctricas – RETIE, Resolución No. 90708 de agosto 30 de 2013 del Ministerio de Minas, y aquellas que la sustituyan o modifiquen.
 						</p>

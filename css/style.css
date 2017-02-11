@@ -99,6 +99,18 @@ strong {
   font-family: "FontAwesome";
 }
 
+/*[[INICIO]]CLASES-DE-AYUDA*/
+.wt-900{
+	max-width: 900px;
+}
+.wt-800{
+	max-width: 800px;
+}
+.wt-700{
+	max-width: 700px;
+}
+/*[[FIN]]CLASES-DE-AYUDA*/
+
 .page {
   overflow: hidden;
   min-height: 500px;
@@ -139,16 +151,23 @@ hr {
 	margin: 20px 0;
 }
 .buscador_dictamen input{
-	padding: 16px !important;
+	padding-top: 16px !important;
+	padding-bottom: 16px !important;
 	font-size: 16px !important;
-	width:100% !important;
+	width:100% ;
 	margin-left: 0 !important;
 }
+.buscador_dictamen input[type="button"],
+.buscador_dictamen input[type="submit"]{
+	width: auto !important;
+}
+
+
 .buscador_dictamen input:active{
 	width: 100% !important;
 }
 .buscador_dictamen .btn{
-	margin-top: 0 !important;
+	margin:20px 0 !important;
 }
 
 /*=======================================================

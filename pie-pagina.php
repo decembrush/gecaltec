@@ -20,7 +20,7 @@
 						  <div class="box_aside">
 							<div class="icon2 fa-envelope"></div>
 						  </div>
-						  <div class="box_cnt__no-flow"><a href="mailto:comercial@nacionaldecertificaciones.com">info@gecaltec.com</a></div>
+						  <div class="box_cnt__no-flow"><a href="mailto:comercial@nacionaldecertificaciones.com">comercial@gecaltec.com</a></div>
 						</div>
 					  </li>
 					  <li class="grid_4">

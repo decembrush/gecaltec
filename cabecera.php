@@ -66,12 +66,8 @@
                 </li>
                 <li><a href="publicaciones.php">PUBLICACIONES</a>
                 </li>
-                <li><a href="cultura-retie-y-retilap.php">CULTURA RETIE <!--Y RETILAP--></a>
-					<ul>
-						<li><a href="cultura-retie.php">CULTURA RETIE</a></li>
-						<!--<li><a href="cultura-retilap.php">CULTURA RETILAP</a></li>-->
-						<li><a href="capacitacion.php">CAPACITACIÓN</a></li>
-					</ul>
+                <li><a href="cultura-retie.php">CULTURA RETIE <!--Y RETILAP--></a>
+
                 </li>
                 <li><a href="portafolio.php">PORTAFOLIO</a>
 					<ul>
@@ -86,6 +82,7 @@
 					<ul>
 						<li><a href="contacto.php">CONTÁCTENOS</a></li>
 						<li><a href="cotizacion.php">SOLICITUD DE COTIZACIÓN</a></li>
+						<li><a href="quejas-apelaciones.php">QUEJAS Y APELACIONES</a></li>
 					</ul>
                 </li>
 

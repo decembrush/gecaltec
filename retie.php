@@ -17,9 +17,15 @@
 						<h2>(Reglamento Técnico de Instalaciones Eléctricas)</h2>
 						<hr>
 						<p>
-						1.	Toda instalación eléctrica a la que le aplique el RETIE, debe contar con un diseño realizado por un profesional o profesionales legalmente competentes para desarrollar esta actividad. El diseño podrá ser detallado o simplificado según el tipo de instalación.
-						</p>
+						1.	El GRUPO EMPRESARIAL DE CALIDAD Y TECNOLOGÍA S.A.S., presta el servicio de inspecciones de instalaciones eléctricas de uso final básicas o generales incluyendo ambientes especiales tales como ascensores, sistema contra incendio, jacuzzis, piscinas, sitios de alta concentración de personas, entre otras similares. También se incluye instalaciones eléctricas de distribución y transformación asociados al uso final.
 
+						</p>
+						<p>
+						2. Requisitos Documentales para el proceso de Certificación de todas las Instalaciones eléctricas objeto de RETIE.
+						</p>
+						<p>
+						3. Requisitos para inspección en Terreno /Campo. * Estar a paz y salvo por concepto del valor de la certificación. * Garantizar acompañamiento por parte de una persona encargada de la obra eléctrica.
+						</p>
 
 					</div>
 					<div class="grid_6">
@@ -27,7 +33,7 @@
 					</div>
 				</div>
 				<div class="row off1">
-					<div id="tabs">
+					<!--<div id="tabs">
 						<ul>
 							<li><a href="#tabs-1" title="">El Diseño Detallado</a></li>
 							<li><a href="#tabs-2" title="">El Diseño Simplificado</a></li>
@@ -65,7 +71,7 @@
 									<li>v. Justificación técnica de desviación de la NTC 2050 cuando sea permitido, siempre y cuando no comprometa la seguridad de las personas o de la instalación.</li>
 									<li>w. Los demás estudios que el tipo instalación requiera para su correcta y segura operación, tales como condiciones sísmicas, acústicas, mecánicas o térmicas.</li>
 								</ul>
-								</br>
+								<br>
 								<p>
 								Nota 1.  La profundidad con que se traten los ítems dependerá del tipo de instalación, para lo cual debe aplicarse el juicio profesional del responsable del diseño.
 								</p>
@@ -84,7 +90,7 @@
 								<p>
 								a) Instalaciones eléctricas de vivienda unifamiliar o bifamiliares y pequeños comercios o pequeñas industrias de capacidad instalable mayor de 7 kVA y menor o igual de 15 kVA , tensión no mayor a 240 V, no tengan ambientes o equipos especiales y no hagan parte de edificaciones multifamiliares o construcciones consecutivas objeto de una misma licencia o permiso de construcción que tengan más de cuatro cuentas del servicio de energía y se especifique lo siguiente :
 								</p>
-								<p>
+
 									<ul>
 										<li>• Análisis de riesgos  de origen eléctricos de origen eléctrico y medias para mitigarlos.</li>
 										<li>• Diseño del sistema de puesta a tierra.</li>
@@ -95,11 +101,11 @@
 										<li>• Elaboración de planos y esquemás eléctricos para construcciones.</li>
 										<li>• Establecer las distancias de seguridad requeridas.</li>
 									</ul>
-								</p>
+
 								<p>
 								b) Ramales de redes aéreas rurales de hasta 50 KVA y 13,2 KV
 								</p>
-								<p>
+
 									<ul>
 										<li>• Análisis de riesgos de origen eléctrico y medidas para mitigarlos.</li>
 										<li>• Diseño de puesta a tierra.</li>
@@ -108,11 +114,11 @@
 										<li>• Especificar las distancias mínimás de seguridad requeridas.</li>
 										<li>• Definir tensión mecánica máxima de conductores y templetes.</li>
 									</ul>
-								</p>
+
 								<p>
 								c) Viviendas  individuales que no hagan parte de edificaciones con más de cuatro cuentas de energía y de potencia instalable menor o igual a 7 KVA, debe especificar los siguientes aspectos:
 								</p>
-								<p>
+
 									<ul>
 										<li>• Distancias mínimás de seguridad.</li>
 										<li>• Esquema del sistema de puesta a tierra, especificando electrodo y cable de puesta a tierra.</li>
@@ -120,20 +126,15 @@
 										<li>• Diagrama unifilar de la instalación y cuadro de cargas.</li>
 										<li>• Esquemás de construcción, identificando localización de aparatos, número y calibre de conductores, tipo y diámetro de tuberías.</li>
 									</ul>
-								</p>
+
 							</div>
 
 
 
-						</div><!--End tabs container-->
+						</div>
 
-					</div><!--End tabs-->
-					<p>
-					2. Requisitos Documentales para el proceso de Certificación de todas las Instalaciones eléctricas objeto de RETIE.
-					</p>
-					<p>
-					3. Requisitos para inspección en Terreno /Campo. * Estar a paz y salvo por concepto del valor de la certificación. * Garantizar acompañamiento por parte de una persona encargada de la obra eléctrica.
-					</p>
+					</div>--><!--End tabs-->
+
 				</div>
 			</div>
 		</section>

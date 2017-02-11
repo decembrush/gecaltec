@@ -1,6 +1,6 @@
 <?php
 
-	$destino = "gecaltec16@gamil.com";
+	$destino = "comercial@gecaltec.com";
 
 	/*VARIABLES PARA CONTACTO*/
 	$nombre_contact = $_POST["nombre_contact"];

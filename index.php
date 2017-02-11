@@ -26,7 +26,7 @@
               <div class="camera_caption fadeIn">
                 <div class="container">
                   <div class="row">
-                    <div class="preffix_6 grid_6">Certifique sus Instalaciones Eléctricas</br>
+                    <div class="preffix_6 grid_6">Inspeccionamos sus Instalaciones Eléctricas</br>
 						<a class="btn" href="cultura-retie-y-retilap.php">Ver más</a>
 					</div>
                   </div>
@@ -52,17 +52,17 @@
               <li>
                 <div class="fa-group"></div>
                 <h3>Nuestra<br/>Empresa</h3>
-                <p>Prestamos servicios de inspección de instalaciones eléctricas y Alumbrado.</p><a href="presentacion-empresa.php"> Ver más</a>
+                <p>Prestamos servicios de inspección para Instalaciones eléctricas RETIE.</p><a href="presentacion-empresa.php"> Ver más</a>
               </li>
               <li>
                 <div class="fa-lightbulb-o"></div>
                 <h3>Cultura<br/>Retie y Retilap</h3>
-                <p>Empleamos el Reglamento Técnico de Instalaciones Eléctricas - RETIE y el Reglamento Técnico de Iluminación y Alumbrado Público – RETILAP.</p><a href="cultura-retie-y-retilap.php"> Ver más</a>
+                <p>Empleamos el Reglamento Técnico de Instalaciones Eléctricas - RETIE.</p><a href="cultura-retie-y-retilap.php"> Ver más</a>
               </li>
               <li>
                 <div class="fa-briefcase"></div>
                 <h3>Portafolio<br/>profesional</h3>
-                <p>Dentro de nuestro portafolio encontrara diseño detallado y simplificado en procesos de inspección y certificación.<a href="portafolio.php"> Ver más</a>
+                <p>Dentro de nuestro portafolio encontrara el servicio de inspección de instalación de instalaciones eléctricas.<a href="portafolio.php"> Ver más</a>
               </li>
 			  <li>
                 <div class="fa-search"></div>
@@ -113,7 +113,7 @@
 
                   <dl>
                     <dt>Correo Eléctronico:</dt>
-                    <dd>info@gecaltec.com</dd>
+                    <dd>comercial@gecaltec.com</dd>
                   </dl>
                   <hr>
 
