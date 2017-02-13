@@ -37,7 +37,7 @@ class Dictum extends CI_Controller {
     }
 
     function listDictum() {
-        $result = $this->dictums->listDocumentsDictum();
+        $result = $this->Dictums->listDocumentsDictum();
         $this->output
                 ->set_content_type("application/json")
                 ->set_output(json_encode(array('status' => true, 'List' => $result)));
@@ -45,14 +45,14 @@ class Dictum extends CI_Controller {
 
     function insertDocument() {
 
-        if (!($this->dictums->findDocumentsDictumByYerAndNumberDictum($this->input->post("nDic_iden"),$this->input->post("nYear")))) {
+        if (!($this->Dictums->findDocumentsDictumByYerAndNumberDictum($this->input->post("nDic_iden"),$this->input->post("nYear")))) {
             $this->output
                     ->set_content_type("application/json")
                     ->set_output(json_encode(array('status' => false, 'message' => "El numero de dictamen  respecto al año ya existe, por favor verifique.")));
             return;
         }
         
-        if (!($this->dictums->findDocumentsDictumByYerAndNumberSheet($this->input->post("nDic_cod"),$this->input->post("nYear")))) {
+        if (!($this->Dictums->findDocumentsDictumByYerAndNumberSheet($this->input->post("nDic_cod"),$this->input->post("nYear")))) {
             $this->output
                     ->set_content_type("application/json")
                     ->set_output(json_encode(array('status' => false, 'message' => "El numero de hoja respecto al año ya existe, por favor verifique.")));
@@ -68,7 +68,7 @@ class Dictum extends CI_Controller {
             'DateCreate' => date("Y-m-d H:i:s")
         );
 
-        $resultSave = $this->dictums->insertDictum($data);
+        $resultSave = $this->Dictums->insertDictum($data);
         if ($resultSave) {
             $structure = './document';
 
@@ -91,7 +91,7 @@ class Dictum extends CI_Controller {
                     'IdDocument' => $resultSave,
                     'DateCreate' => date("Y-m-d H:i:s")
                 );
-                $this->dictums->insertDictumDetail($dataDetails);
+                $this->Dictums->insertDictumDetail($dataDetails);
 
 
                 $this->output
@@ -114,7 +114,7 @@ class Dictum extends CI_Controller {
         
         $id = $_POST["id"];
         
-        if ($this->dictums->deleteDictum($id)) {
+        if ($this->Dictums->deleteDictum($id)) {
             $this->output
                         ->set_content_type("application/json")
                         ->set_output(json_encode(array('status' => true, 'message' => "El dictamen se ha eliminado correctamente.")));

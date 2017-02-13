@@ -6,7 +6,7 @@ class Login extends CI_Controller {
     function __construct()
     {
       parent::__construct();
-      $this->load->model('user','',TRUE);
+      $this->load->model('User','',TRUE);
     }
 
     function index()
@@ -17,15 +17,11 @@ class Login extends CI_Controller {
     
     function validateLogin(){
         
-        //header('Content-Type: application/json');
-        
-        
-        //return "exitoso";
         //echo json_encode( "Exitoso" );
         $user = $this->input->post("lgUser");
         $password = $this->input->post("lgPsw");
         
-        $result = $this->user->login($user, $password);
+        $result = $this->User->login($user, $password);
                
         
         if ($result) {

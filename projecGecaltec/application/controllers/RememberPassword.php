@@ -18,8 +18,8 @@ class RememberPassword extends CI_Controller {
     //put your code here
     function __construct() {
         parent::__construct();
-        $this->load->model('user', '', TRUE);
-        $this->load->model('util');
+        $this->load->model('User', '', TRUE);
+        $this->load->model('Util');
     }
 
     function index() {        
@@ -32,17 +32,17 @@ class RememberPassword extends CI_Controller {
         try {
             $mail = $this->input->post("recEmail");
 
-            $result = $this->user->findUserByMail($mail);
+            $result = $this->User->findUserByMail($mail);
             if ($result) {
 
-                $password = $this->util->get_random_password();
+                $password = $this->Util->get_random_password();
 
                 $data = array(
                     'Password' => md5($password)
                 );
 
-                $this->user->updateUserByIduser($result->Id, $data);
-                $this->util->sendMailRememberpassword($mail, $password);
+                $this->User->updateUserByIduser($result->Id, $data);
+                $this->Util->sendMailRememberpassword($mail, $password);
 
                 $this->output
                         ->set_content_type("application/json")

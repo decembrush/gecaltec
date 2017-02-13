@@ -16,7 +16,7 @@ class Account extends CI_Controller {
     function __construct()
     {
       parent::__construct();
-      $this->load->model('user','',TRUE);
+      $this->load->model('User','',TRUE);
     }
     
     function index(){
@@ -24,7 +24,7 @@ class Account extends CI_Controller {
         $data = $this->session->userdata('logged_in');
         if($data)
         {           
-            $result = $this->user->findUserById($data["Id"]); 
+            $result = $this->User->findUserById($data["Id"]); 
             print_r($result);
             print_r($data);
             
@@ -48,10 +48,10 @@ class Account extends CI_Controller {
         $data = $this->session->userdata('logged_in');
         if($data)
         {   
-            if ($this->user->verifyUserByMailAndNameUser($this->input->post("nameUser"), $this->input->post("mailUser"), $data["Id"])) { 
+            if ($this->User->verifyUserByMailAndNameUser($this->input->post("nameUser"), $this->input->post("mailUser"), $data["Id"])) { 
             
                 $passwordOldForm = $this->input->post("passwordUserOld");
-                $result = $this->user->findUserById($data["Id"]);  
+                $result = $this->User->findUserById($data["Id"]);  
 
                 if ($passwordOldForm != "") {                
 
@@ -66,7 +66,7 @@ class Account extends CI_Controller {
                             'Mail' =>$this->input->post("mailUser"),
                             'Password' => md5($this->input->post("passwordUserNew"))
                         );
-                        $this->user->updateUserByIduser($data["Id"], $dataUpload);
+                        $this->User->updateUserByIduser($data["Id"], $dataUpload);
 
                     }
                 }else{
@@ -74,7 +74,7 @@ class Account extends CI_Controller {
                         'User' =>$this->input->post("nameUser"),
                         'Mail' =>$this->input->post("mailUser")                
                     );
-                    $this->user->updateUserByIduser($data["Id"], $dataUpload);
+                    $this->User->updateUserByIduser($data["Id"], $dataUpload);
                 }
 
 
