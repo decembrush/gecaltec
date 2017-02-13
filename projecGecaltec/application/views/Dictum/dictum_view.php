@@ -1,3 +1,7 @@
+<script src="<?php echo base_url(); ?>Scripts/js/Jspages/JsDictum.js"></script>
+
+
+
 <div class="contenido">
 
     <div class="container">
@@ -19,20 +23,27 @@
 
 
         <div class="table-responsive dt_sitio">
-
+                <div class="alert alert-danger" id="alertMessageDanger2" style="display: none;" role="alert">
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <span id="messageDanger2"></span>
+                </div>
+                <div class="alert alert-success" id="alertMessageSuccess2" style="display: none;" role="alert">
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <span id="messageSuccess2"></span>
+                </div>
             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Codigo</th>
+                        <th># Dictamen</th>
+                        <th># Hoja</th>
                         <th>Descripción</th>
                         <th>Fecha de carga</th>
                         <th>Archivo</th>
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="RowDictums">
+                    <!--<tr>
                         <td>UXZ</td>
                         <td>000001</td>
                         <td>Conjunto residencial rosales</td>
@@ -44,179 +55,7 @@
                                 <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
                             </div>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>WZK</td>
-                        <td>000002</td>
-                        <td>Conjunto residencial el tintal</td>
-                        <td>2016/05/21</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000002</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UXZ</td>
-                        <td>000001</td>
-                        <td>Conjunto residencial rosales</td>
-                        <td>2011/05/25</td>
-                        <td><a href="documentos/pdf-test.pdf" target="_blank">hola.jpg</a></td>
-                        <td>
-                            <div class="cnt_btn_icons">
-                                <a href="documentos/pdf-test.pdf" target="_blank" class="btn btn-icon btn-icon-g"><i class="fa fa-eye"></i></a>
-                                <a href="" class="btn btn-icon btn-icon-r"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-
-
-
+                    </tr>-->
                 </tbody>
             </table>
         </div>
@@ -236,7 +75,16 @@
                 <h4 class="modal-title" id="myModalLabel">Cargar Dictamen</h4>
             </div>
             <div class="modal-body">
+                <div class="alert alert-danger" id="alertMessageDanger" style="display: none;" role="alert">
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <span id="messageDanger"></span>
+                </div>
+                <div class="alert alert-success" id="alertMessageSuccess" style="display: none;" role="alert">
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <span id="messageSuccess"></span>
+                </div>
                 <form id="form-nDictamen" method="post">
+                    <input type="hidden" name="path" id="path" value="<?php echo base_url(); ?>" />
                     <div class="form-ch">
                         <div class="form-group row">
                             <div class="col-md-4">
@@ -259,10 +107,10 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Adjuntar Documento <span class="txtColor">*</span></label>
                             <div>
-                                <input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2"  />
+                                <input type="file" name="file_2" id="file-2" class="inputfile inputfile-2"  />
                                 <label for="file-2"><i class="fa fa-upload"></i> <span>Seleccionar Archivo&hellip;</span></label>
                             </div>
-                            <p class="help-block">Adjunte archivos .PDF (MAX 10MB)</p>
+                            <p class="help-block">Adjunte archivos .PDF (MAX 5MB)</p>
                         </div>
                         <input type="submit" id="nDic_btnSave" class="btn btn-ch" value="Guardar">
                         <a href="" class="btn btn-ch-gray" data-dismiss="modal">Cancelar</a>
