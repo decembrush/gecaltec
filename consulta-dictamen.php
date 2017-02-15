@@ -12,7 +12,7 @@
 					<label for="inp_no_dictamen">Número de Dictamen</label>
 					<input type="text" placeholder="Ej. 001-17" id="inp_no_dictamen">
 				</div>
-				<div class="grid_6">
+				<div class="grid_6" id="hiddenNumberSheet" style="display:none;">
 					<label for="inp_no_hoja">Número de Hoja</label>
 					<input type="text" placeholder="Ej. -24" id="inp_no_hoja">
 				</div>

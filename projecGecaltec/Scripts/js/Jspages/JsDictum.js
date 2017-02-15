@@ -62,20 +62,19 @@ function deleteDictum(id) {
     if (r == false) {
         return false;
     }
-    
+
     var path = $("#path").val() + "Dictum/deleteDictumById";
     $.ajax({
-        type: "POST",    
+        type: "POST",
         url: path,
         datatype: "Json",
         data: {'id': id},
-        
         success: function (response) {
             if (response.status) {
                 $("#alertMessageSuccess2").removeAttr("style");
                 $("#alertMessageDanger2").css({"display": "none"});
                 $("#messageSuccess2").html(response.message);
-               
+
                 listOfDictum();
                 //location.reload();
 
@@ -87,7 +86,7 @@ function deleteDictum(id) {
 
         }
     });
-    
+
     return false;
 }
 
@@ -199,6 +198,95 @@ $(document).ready(function () {
 
         return false;
     });
+
+
+    $("#form-nDictamen2").submit(function () {
+
+        var validator = $("#form-nDictamen2").validate({ /* settings */});
+        if ($("#form-nDictamen2").valid() === false) {
+
+            validator.focusInvalid();
+            return false;
+        }
+
+        var str = $("#inp_no_dictamen").val();
+        if (str.indexOf('-') === -1) {
+            $("#alertMessageDanger").removeAttr("style");
+            $("#alertMessageSuccess").css({"display": "none"});
+            $("#messageDanger").html("Numero de dictamen incorrecto, por favor verifique.");
+            return false;
+        }
+
+        var path = $("#path").val() + "Dictum/verifyDictamen";
+
+        if ($("#inp_no_hoja").val() === "") {
+            $.ajax({
+                type: "POST",
+                url: path,
+                datatype: "Json",
+                contentType: false,
+                processData: false,
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.status) {
+                        $("#alertMessageSuccess").removeAttr("style");
+                        $("#alertMessageDanger").css({"display": "none"});
+                        $("#messageSuccess").html(response.message);
+
+                        $("#btn_consulta").val("Consultar Dictamen").removeAttr("disabled", "disabled");
+
+                        $("#hiddenNumberSheet").removeAttr("style");
+
+                        $("#inp_no_dictamen").attr("readonly", "readonly");
+
+
+                    } else {
+                        $("#alertMessageDanger").removeAttr("style");
+                        $("#alertMessageSuccess").css({"display": "none"});
+                        $("#messageDanger").html(response.message);
+
+                        $("#btn_consulta").val("Consultar Dictamen").removeAttr("disabled", "disabled");
+
+                    }
+
+                }
+            });
+        } else {
+            $.ajax({
+                type: "POST",
+                url: path,
+                datatype: "Json",
+                contentType: false,
+                processData: false,
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.status) {
+                        $("#alertMessageSuccess").removeAttr("style");
+                        $("#alertMessageDanger").css({"display": "none"});
+                        $("#messageSuccess").html(response.message);
+
+                        $("#btn_consulta").val("Consultar Dictamen").removeAttr("disabled", "disabled");
+
+                        
+                        loadDocument();
+
+
+                    } else {
+                        $("#alertMessageDanger").removeAttr("style");
+                        $("#alertMessageSuccess").css({"display": "none"});
+                        $("#messageDanger").html(response.message);
+
+                        $("#btn_consulta").val("Consultar Dictamen").removeAttr("disabled", "disabled");
+
+                    }
+
+                }
+            });
+        }
+
+        return false;
+    });
+
 });
 
 

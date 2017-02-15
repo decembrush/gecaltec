@@ -70,5 +70,45 @@ class Util extends CI_Model {
         $result = $this->email->send();
         //resetPassword
     }
+    
+     function sendMailRememberpassword2($mail, $password){
+        
+        $config = Array(
+            'protocol' => 'mail',
+            'smtp_host' => 'mail.gecaltec.com.co',
+            'smtp_port' => 25,
+            'smtp_user' => 'no-reply@gecaltec.com.co',
+            'smtp_pass' => 'Febrero2016',
+            'mailtype'  => 'html', 
+            'charset'   => 'utf-8'
+            
+        );
+        $this->load->library('email', $config);
+        
+        $this->email->set_newline("\r\n");
+
+        // Set to, from, message, etc.
+        
+        $this->email->from('no-reply@gecaltec.com', 'Gecaltec');
+
+        $list = array($mail);
+        $this->email->to($list);
+        $this->email->subject('Reseteo de contraseña');
+        
+        $data = array(
+             'password'=> $password
+        );
+        
+    
+        $body = $this->load->view('Layout/resetPassword',$data,TRUE);
+        $this->email->message($body);   
+        
+        //$this->email->message($email_body);
+        
+        $result = $this->email->send();
+
+
+        //resetPassword
+    }
 
 }

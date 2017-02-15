@@ -18,7 +18,7 @@ class Dictum extends CI_Controller {
     //put your code here
     function __construct() {
         parent::__construct();
-        $this->load->model('dictums', '', TRUE);
+        $this->load->model('Dictums', '', TRUE);
     }
 
     function index() {
@@ -42,7 +42,27 @@ class Dictum extends CI_Controller {
                 ->set_content_type("application/json")
                 ->set_output(json_encode(array('status' => true, 'List' => $result)));
     }
-
+    
+    function verifyDictamen(){
+        
+        $numberDictum = $this->input->post("nDic_iden");
+        
+        if ($this->Dictums->findDocDictumByYearAndNumberDictum("", "")) {
+            
+            
+            
+        } else {
+            $this->output
+                    ->set_content_type("application/json")
+                    ->set_output(json_encode(array('status' => false, 
+                        'message' => "No se encontraron resultados por el numero de dictamen ingresado.")));
+            return;
+        }
+        
+        
+            
+    }
+    
     function insertDocument() {
 
         if (!($this->Dictums->findDocumentsDictumByYerAndNumberDictum($this->input->post("nDic_iden"),$this->input->post("nYear")))) {
