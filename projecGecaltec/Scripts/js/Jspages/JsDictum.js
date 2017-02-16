@@ -3,6 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var myTable = $('#example').DataTable({
+        //"pagingType": "full_numbers",
+        paging: true,
+        responsive: true,
+        "bFilter": true,
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf'
+        ],
+        language: {
+            "sProcessing": "Procesando...",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sZeroRecords": "No se encontraron resultados",
+            "sEmptyTable": "Ningún dato disponible en esta tabla",
+            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sSearch": "Buscar:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst": "Primero",
+                "sLast": "Último",
+                "sNext": "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+    });
+    //$('select').material_select();
+
+    
+
+
 $(window).on('load', function () {
 
     //alert('Window load');
@@ -11,6 +50,22 @@ $(window).on('load', function () {
     listOfDictum();
 
 });
+
+function loadDocument(data) {
+
+    var path = $("#path").val();
+
+    $("#hiddenResultDocument").removeAttr("style");
+    $("#url_dictum").html("<a href=\"" + path + data.Path + "\" target=\"_blank\">Dictamen " + data.NumberFull + "-" + data.NumberSheet + "</a>");
+    $("#description_dictum").html(data.Description);
+    $("#url2_dictum").html("<a href=\"" + path + data.Path + "\" target=\"_blank\" >Descargar Aquí</a>");
+
+
+    $("#hiddenNumberSheet").css({"display": "none"});
+    $("#inp_no_dictamen").removeAttr("readonly");
+    $("#inp_no_hoja").val("");
+    $("#inp_no_dictamen").val("");
+}
 
 function listOfDictum() {
 
@@ -30,13 +85,34 @@ function listOfDictum() {
 function onSuccess(response) {
 
     var path = $("#path").val();
-    $('#RowDictums').html('');
+    //$('#RowDictums').html('');
+    myTable
+    .rows()
+    .remove()
+    .draw();
     var trHTML = '';
 
 
     for (var i = 0; i < response.List.length; i++) {
 
-        trHTML += ('<tr><td>' + response.List[i].NumberDictum + "-" + response.List[i].Year + "</td>"
+        myTable.row.add([
+            response.List[i].NumberDictum + "-" + response.List[i].Year, 
+            response.List[i].NumberSheet, 
+            response.List[i].Description, 
+            response.List[i].DateCreate, 
+            "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\">" + response.List[i].Name + "</a>", 
+            
+            "<div class=\"cnt_btn_icons\">"
+
+                + "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\" class=\"btn btn-icon btn-icon-g\"><i class=\"fa fa-eye\"></i></a>"
+                + "<button onclick=\"deleteDictum(" + response.List[i].Id + ")\" class=\"btn btn-icon btn-icon-r\"><i class=\"fa fa-trash\"></i></button>"
+
+                + "</div>"
+        
+        ]);
+        myTable.draw();
+
+        /*trHTML += ('<tr><td>' + response.List[i].NumberDictum + "-" + response.List[i].Year + "</td>"
                 + "<td>" + response.List[i].NumberSheet + "</td>"
                 + "<td>" + response.List[i].Description + "</td>"
                 + "<td>" + response.List[i].DateCreate + "</td>"
@@ -49,10 +125,10 @@ function onSuccess(response) {
                 + "<button onclick=\"deleteDictum(" + response.List[i].Id + ")\" class=\"btn btn-icon btn-icon-r\"><i class=\"fa fa-trash\"></i></button>"
 
                 + "</div>"
-                + "</tr>");
+                + "</tr>");*/
 
     }
-    $('#RowDictums').html(trHTML);
+    //$('#RowDictums').html(trHTML);
 
 }
 
@@ -92,9 +168,12 @@ function deleteDictum(id) {
 
 $(document).ready(function () {
 
+
+    
+    
     $("#form-nDictamen").submit(function () {
 
-        var validator = $("#form-nDictamen").validate({ /* settings */});
+        var validator = $("#form-nDictamen").validate({/* settings */});
         if ($("#form-nDictamen").valid() === false) {
 
             validator.focusInvalid();
@@ -200,32 +279,26 @@ $(document).ready(function () {
     });
 
 
-    $("#form-nDictamen2").submit(function () {
+    $("#form_consult_dictum").submit(function () {
 
-        var validator = $("#form-nDictamen2").validate({ /* settings */});
-        if ($("#form-nDictamen2").valid() === false) {
 
-            validator.focusInvalid();
-            return false;
-        }
+        //var validator = $("#form_consult_dictum").validate({/* settings */});
+        //if ($("#form_consult_dictum").valid() === false) {
+        //    validator.focusInvalid();
+        //    return false;
+        //}
 
-        var str = $("#inp_no_dictamen").val();
-        if (str.indexOf('-') === -1) {
-            $("#alertMessageDanger").removeAttr("style");
-            $("#alertMessageSuccess").css({"display": "none"});
-            $("#messageDanger").html("Numero de dictamen incorrecto, por favor verifique.");
-            return false;
-        }
+        $("#btn_consulta").val("Por favor espere ...").attr("disabled", "disabled");
 
-        var path = $("#path").val() + "Dictum/verifyDictamen";
 
         if ($("#inp_no_hoja").val() === "") {
+
+            var path = $("#path").val() + "Dictum/verifyDictum";
+            //alert(path);
             $.ajax({
                 type: "POST",
                 url: path,
                 datatype: "Json",
-                contentType: false,
-                processData: false,
                 data: $(this).serialize(),
                 success: function (response) {
                     if (response.status) {
@@ -233,17 +306,19 @@ $(document).ready(function () {
                         $("#alertMessageDanger").css({"display": "none"});
                         $("#messageSuccess").html(response.message);
 
-                        $("#btn_consulta").val("Consultar Dictamen").removeAttr("disabled", "disabled");
-
                         $("#hiddenNumberSheet").removeAttr("style");
 
                         $("#inp_no_dictamen").attr("readonly", "readonly");
+                        $("#btn_consulta").val("Consultar Dictamen").removeAttr("disabled", "disabled");
 
+                        $("#hiddenResultDocument").css({"display": "none"});
 
                     } else {
                         $("#alertMessageDanger").removeAttr("style");
                         $("#alertMessageSuccess").css({"display": "none"});
                         $("#messageDanger").html(response.message);
+
+                        $("#hiddenResultDocument").css({"display": "none"});
 
                         $("#btn_consulta").val("Consultar Dictamen").removeAttr("disabled", "disabled");
 
@@ -252,29 +327,33 @@ $(document).ready(function () {
                 }
             });
         } else {
+            var path = $("#path").val() + "Dictum/verifyDictumAndSheet";
             $.ajax({
                 type: "POST",
                 url: path,
                 datatype: "Json",
-                contentType: false,
-                processData: false,
                 data: $(this).serialize(),
                 success: function (response) {
                     if (response.status) {
-                        $("#alertMessageSuccess").removeAttr("style");
-                        $("#alertMessageDanger").css({"display": "none"});
-                        $("#messageSuccess").html(response.message);
+                        $("#alertMessageSuccess").css({"display": "none"});
+                        //$("#alertMessageDanger").css({"display": "none"});
+                        //$("#messageSuccess").html(response.message);
 
                         $("#btn_consulta").val("Consultar Dictamen").removeAttr("disabled", "disabled");
 
-                        
-                        loadDocument();
+
+                        loadDocument(response.data);
 
 
                     } else {
                         $("#alertMessageDanger").removeAttr("style");
                         $("#alertMessageSuccess").css({"display": "none"});
                         $("#messageDanger").html(response.message);
+
+                        $("#hiddenNumberSheet").css({"display": "none"});
+                        $("#hiddenResultDocument").css({"display": "none"});
+                        $("#inp_no_dictamen").removeAttr("readonly");
+                        $("#inp_no_hoja").val("");
 
                         $("#btn_consulta").val("Consultar Dictamen").removeAttr("disabled", "disabled");
 

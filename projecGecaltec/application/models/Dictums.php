@@ -53,13 +53,13 @@ Class Dictums extends CI_Model {
         }
     }
 
-    function findDocDictumByYearAndNumberDictum($year, $numberDictum) {
+    function findDocDictumByNumberFull($numberFull) {
         $this->db->select('documents.Id, NumberDictum, NumberSheet, Year, Description,'
                 . ' documents.DateCreate, documentsDetails.Name, Path, IdDocument');
         $this->db->from('documents');
         $this->db->join('documentsDetails', "documents.Id = documentsDetails.IdDocument");
-        $this->db->where("Year", $year);
-        $this->db->where("NumberDictum", $numberDictum);
+        
+        $this->db->where("NumberFull", $numberFull);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -71,13 +71,12 @@ Class Dictums extends CI_Model {
         }
     }
     
-    function findDocDictumByYearAndNumberDictumAndNumerSheet($year, $numberDictum, $numberSheet) {
-        $this->db->select('documents.Id, NumberDictum, NumberSheet, Year, Description,'
+    function findDocDictumByFullNumberAndNumerSheet($numberFull, $numberSheet) {
+        $this->db->select('documents.Id, NumberDictum, NumberSheet, Year, Description, NumberFull,'
                 . ' documents.DateCreate, documentsDetails.Name, Path, IdDocument');
         $this->db->from('documents');
         $this->db->join('documentsDetails', "documents.Id = documentsDetails.IdDocument");
-        $this->db->where("Year", $year);
-        $this->db->where("NumberDictum", $numberDictum);
+        $this->db->where("NumberFull", $numberFull);
         $this->db->where("NumberSheet", $numberSheet);
         $this->db->limit(1);
 

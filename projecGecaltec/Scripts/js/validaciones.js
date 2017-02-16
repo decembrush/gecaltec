@@ -2,7 +2,7 @@ $(function(){
 	$("#btnIniciarSesion").on("click", function(){
 		$("#form-login").validate({
 			rules:{
-				lgUsuario:{
+				lgUser:{
 					required: true
 				},
 				lgPsw:{
@@ -11,7 +11,7 @@ $(function(){
 			},
 			messages:
 			{
-				lgUsuario: {
+				lgUser: {
 					required: 'Por favor, ingresa este campo'
 
 				},
@@ -33,7 +33,7 @@ $(function(){
 			messages:
 			{
 				recEmail: {
-					required: 'Por favor, ingresa tu correo',
+					required: 'Ingresa el correo electrónico registrado para generar una nueva contraseña.',
 					email: 'El correo ingresado no es valido'
 				}
 			}
@@ -44,39 +44,47 @@ $(function(){
 		$("#form-nDictamen").validate({
 			rules:{
 				nDic_iden:{
-					required: true
+					required: true,
+                                        maxlength: 12
 				},
                                 nYear:{
 					required: true,
+                                        number : true,
 					minlength: 2,
 					maxlength: 2
 				},
 				nDic_cod:{
 					required: true,
+                                        number : true,
 					minlength: 2,
-					maxlength: 8
+					maxlength: 6
 				},
 				nDic_decrip:{
-					required: true
+					required: true,
+                                        maxlength: 200
 				}
 			},
 			messages:
 			{
 				nDic_iden: {
-					required: 'Por favor, ingresa el # de dictamen del documento'
+					required: 'Por favor, ingresa el # de dictamen del documento',
+                                        maxlength: 'Ingresa máximo 12 caracteres'
 				},
                                 nYear:{
                                         required: 'Por favor, ingresa el año del documento',
 					minlength: 'Ingresa minimo 2 caracteres',
-					maxlength: 'Ingresa máximo 2 caracteres'
+					maxlength: 'Ingresa máximo 2 caracteres',
+                                        number : "Por favor, ingrese un numero valido."
                                 },
 				nDic_cod:{
 					required: 'Por favor, ingresa el # de hoja del documento',
 					minlength: 'Ingresa minimo 2 caracteres',
-					maxlength: 'Ingresa máximo 8 caracteres'
+					maxlength: 'Ingresa máximo 6 caracteres',
+                                        number : "Por favor, ingrese un numero valido."
 				},
 				nDic_decrip:{
-					required: 'Por favor, ingresa una descripcion breve para el documento'
+					required: 'Por favor, ingresa una descripcion breve para el documento',
+                                        maxlength: 'Ingresa máximo 200 caracteres'
 				}
 			}
 		});
@@ -90,7 +98,8 @@ $(function(){
                                     required: true
 				},
 				mailUser:{
-                                    required:true
+                                    required:true,
+                                    email: true
 				},
                                 passwordUserNewRepeat: {
                                     equalTo: "#passwordUserNew"
@@ -108,7 +117,8 @@ $(function(){
 
 				},
 				mailUser:{
-					required: 'Por favor, ingresa el correo electronico.'
+					required: 'Por favor, ingresa el correo electronico.',
+                                        email: 'El correo ingresado no es valido'
 				},
                                 passwordUserNewRepeat: {
                                     equalTo: "La contraseñas no coinciden."

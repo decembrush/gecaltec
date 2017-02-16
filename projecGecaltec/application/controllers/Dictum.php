@@ -29,7 +29,7 @@ class Dictum extends CI_Controller {
 
             // Pass to the master view
             $this->load->view('Layout/masterAdmin_view', array('content' => $content, 'pageTitle' => 'Dictamenes'));
-
+            
             //$this->load->view('item/show', array('item' => $item), true);
         } else {
             redirect(base_url());
@@ -43,13 +43,15 @@ class Dictum extends CI_Controller {
                 ->set_output(json_encode(array('status' => true, 'List' => $result)));
     }
     
-    function verifyDictamen(){
+    function verifyDictum(){
         
-        $numberDictum = $this->input->post("nDic_iden");
-        
-        if ($this->Dictums->findDocDictumByYearAndNumberDictum("", "")) {
+        $numberFull = $this->input->post("inp_no_dictamen");        
+        if ($this->Dictums->findDocDictumByNumberFull($numberFull)) {
             
-            
+            $this->output
+                    ->set_content_type("application/json")
+                    ->set_output(json_encode(array('status' => true, 
+                        'message' => "El numero de dictamen es correcto, por favor ingrese el numero de hoja.")));
             
         } else {
             $this->output
@@ -57,10 +59,29 @@ class Dictum extends CI_Controller {
                     ->set_output(json_encode(array('status' => false, 
                         'message' => "No se encontraron resultados por el numero de dictamen ingresado.")));
             return;
-        }
+        }      
+    }
+    
+    function verifyDictumAndSheet(){
         
+        $numberFull = $this->input->post("inp_no_dictamen");  
+        $numberSheet = $this->input->post("inp_no_hoja");
         
+        $result = $this->Dictums->findDocDictumByFullNumberAndNumerSheet($numberFull, $numberSheet);
+        if ($result) {
             
+            $this->output
+                    ->set_content_type("application/json")
+                    ->set_output(json_encode(array('status' => true, 
+                        'data' => $result)));
+            
+        } else {
+            $this->output
+                    ->set_content_type("application/json")
+                    ->set_output(json_encode(array('status' => false, 
+                        'message' => "No se encontraron resultados por el numero de hoja ingresado.")));
+            return;
+        }      
     }
     
     function insertDocument() {
@@ -68,14 +89,14 @@ class Dictum extends CI_Controller {
         if (!($this->Dictums->findDocumentsDictumByYerAndNumberDictum($this->input->post("nDic_iden"),$this->input->post("nYear")))) {
             $this->output
                     ->set_content_type("application/json")
-                    ->set_output(json_encode(array('status' => false, 'message' => "El numero de dictamen  respecto al año ya existe, por favor verifique.")));
+                    ->set_output(json_encode(array('status' => false, 'message' => "El número de dictamen ingresado ya existe para el presente año, por favor, verifique")));
             return;
         }
         
         if (!($this->Dictums->findDocumentsDictumByYerAndNumberSheet($this->input->post("nDic_cod"),$this->input->post("nYear")))) {
             $this->output
                     ->set_content_type("application/json")
-                    ->set_output(json_encode(array('status' => false, 'message' => "El numero de hoja respecto al año ya existe, por favor verifique.")));
+                    ->set_output(json_encode(array('status' => false, 'message' => "El número de hoja ingresado ya existe para el presente año, por favor, verifique")));
             return;
         }
         
@@ -85,7 +106,8 @@ class Dictum extends CI_Controller {
             'NumberSheet' => $this->input->post("nDic_cod"),
             'Year' => $this->input->post("nYear"),
             'Description' => $this->input->post("nDic_decrip"),
-            'DateCreate' => date("Y-m-d H:i:s")
+            'DateCreate' => date("Y-m-d H:i:s"),
+            'NumberFull' => $this->input->post("nDic_iden")."-".$this->input->post("nYear"),
         );
 
         $resultSave = $this->Dictums->insertDictum($data);

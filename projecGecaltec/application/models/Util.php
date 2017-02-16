@@ -55,7 +55,7 @@ class Util extends CI_Model {
 
         $list = array($mail);
         $this->email->to($list);
-        $this->email->subject('Reseteo de contraseña');
+        $this->email->subject('Solicitud de nueva contraseña');
 
         $data = array(
             'password' => $password

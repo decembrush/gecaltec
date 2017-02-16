@@ -5,14 +5,7 @@
     <div class="container">
         <div class="cnt-form-sitio">
             <form id="form-account">
-                <div class="alert alert-danger" id="alertMessageDanger" style="display: none;" role="alert">
-                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                    <span id="messageDanger"></span>
-                </div>
-                <div class="alert alert-success" id="alertMessageSuccess" style="display: none;" role="alert">
-                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                    <span id="messageSuccess"></span>
-                </div>
+
 
                 <input type="hidden" name="path" id="path" value="<?php echo base_url(); ?>" />
                 <div class="form-ch">
@@ -52,6 +45,14 @@
                             <label for="">Repite la contraseña</label>
                             <input type="password" name="passwordUserNewRepeat" id="passwordUserNewRepeat"  class="form-control" >
                         </div>
+                    </div>
+                    <div class="alert alert-danger" id="alertMessageDanger" style="display: none;" role="alert">
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                        <span id="messageDanger"></span>
+                    </div>
+                    <div class="alert alert-success" id="alertMessageSuccess" style="display: none;" role="alert">
+                        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                        <span id="messageSuccess"></span>
                     </div>
                     <input type="submit" id="btn_accountUser" class="btn btn-ch" value="Guardar Cambios">
 

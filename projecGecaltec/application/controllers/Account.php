@@ -25,8 +25,8 @@ class Account extends CI_Controller {
         if($data)
         {           
             $result = $this->User->findUserById($data["Id"]); 
-            print_r($result);
-            print_r($data);
+            //print_r($result);
+            //print_r($data);
             
             $dataRead = array(
                             'User' =>$result->User,
@@ -58,7 +58,7 @@ class Account extends CI_Controller {
                     if (md5($passwordOldForm) != $result->Password)  {   
                         $this->output
                                     ->set_content_type("application/json")
-                                    ->set_output(json_encode(array('status'=>false,'message' => 'Contraseña actual no coincide.')));
+                                    ->set_output(json_encode(array('status'=>false,'message' => 'La contraseña actual es incorrecta.')));
                         return false;
                     }else{
                         $dataUpload = array(
