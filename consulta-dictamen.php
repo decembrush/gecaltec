@@ -4,7 +4,8 @@ $pageTitle = 'Consultar Dictamen';
 include("cabecera.php");
 ?>
 
-<script src="projecGecaltec/Scripts/js/Jspages/JsDictum.js"></script>
+<script src="projecGecaltec/Scripts/js/Jspages/JsDictum2.js"></script>
+
 <main>
     <div class="container">
         <div class="buscador_dictamen">

@@ -108,7 +108,7 @@
                             <label for="exampleInputFile">Adjuntar Documento <span class="txtColor">*</span></label>
                             <div>
                                 <input type="file" name="file_2" id="file-2" class="inputfile inputfile-2"  />
-                                <label for="file-2"><i class="fa fa-upload"></i> <span>Seleccionar Archivo&hellip;</span></label>
+                                <label for="file-2"><i class="fa fa-upload"></i> <span id="name-file">Seleccionar Archivo&hellip;</span></label>
                             </div>
                             <p class="help-block">Adjunte archivos .PDF (MAX 5MB)</p>
                         </div>

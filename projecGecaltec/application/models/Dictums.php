@@ -116,7 +116,7 @@ Class Dictums extends CI_Model {
         $this->db->delete('documents');
 
         $this->db->where('IdDocument', $idDuctum);
-        $this->db->delete('documentsdetails');
+        $this->db->delete('documentsDetails');
 
         return true;
     }
