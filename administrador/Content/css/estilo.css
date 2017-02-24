@@ -594,7 +594,6 @@ fieldset[disabled] .navbar-ch .btn-link:focus {
 	min-height: 100vh;
 }
 .seccion-overlay{
-	background:url('../images/triangulos.png') center center;
 	background-color: rgba(0,0,0,0.8);
 	-webkit-background-size: cover;
 	background-size:cover;	
