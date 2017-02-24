@@ -1,6 +1,6 @@
 <?php
 
-	$destino = "comercial@gecaltec.com";
+	$destino = "comercial@gecaltec.com.co";
 
 	/*INFORMACION DE LA OBRA*/
 	$propietario_obra = $_POST["propietario_obra"];

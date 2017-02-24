@@ -56,7 +56,7 @@
               </li>
               <li>
                 <div class="fa-lightbulb-o"></div>
-                <h3>Cultura<br/>Retie y Retilap</h3>
+                <h3>Cultura<br/>Retie</h3>
                 <p>Empleamos el Reglamento Técnico de Instalaciones Eléctricas - RETIE.</p><a href="cultura-retie-y-retilap.php"> Ver más</a>
               </li>
               <li>
@@ -113,7 +113,7 @@
 
                   <dl>
                     <dt>Correo Eléctronico:</dt>
-                    <dd>comercial@gecaltec.com</dd>
+                    <dd>comercial@gecaltec.com.co</dd>
                   </dl>
                   <hr>
 
