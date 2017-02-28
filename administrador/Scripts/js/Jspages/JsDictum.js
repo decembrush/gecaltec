@@ -276,6 +276,7 @@ $(document).ready(function () {
                         $("#alertMessageSuccess").slideUp(500);
                     });
 
+
                 } else {
                     $("#alertMessageDanger").removeAttr("style");
                     $("#alertMessageSuccess").css({"display": "none"});
