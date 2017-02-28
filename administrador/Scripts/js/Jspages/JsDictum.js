@@ -4,42 +4,42 @@
  * and open the template in the editor.
  */
 var myTable = $('#example').DataTable({
-        //"pagingType": "full_numbers",
-        paging: true,
-        responsive: true,
-        "bFilter": true,
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf'
-        ],
-        language: {
-            "sProcessing": "Procesando...",
-            "sLengthMenu": "Mostrar _MENU_ registros",
-            "sZeroRecords": "No se encontraron resultados",
-            "sEmptyTable": "Ningún dato disponible en esta tabla",
-            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-            "sInfoPostFix": "",
-            "sSearch": "Buscar:",
-            "sUrl": "",
-            "sInfoThousands": ",",
-            "sLoadingRecords": "Cargando...",
-            "oPaginate": {
-                "sFirst": "Primero",
-                "sLast": "Último",
-                "sNext": "Siguiente",
-                "sPrevious": "Anterior"
-            },
-            "oAria": {
-                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-            }
+    //"pagingType": "full_numbers",
+    paging: true,
+    responsive: true,
+    "bFilter": true,
+    dom: 'Bfrtip',
+    buttons: [
+        'excel', 'pdf'
+    ],
+    language: {
+        "sProcessing": "Procesando...",
+        "sLengthMenu": "Mostrar _MENU_ registros",
+        "sZeroRecords": "No se encontraron resultados",
+        "sEmptyTable": "Ningún dato disponible en esta tabla",
+        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix": "",
+        "sSearch": "Buscar:",
+        "sUrl": "",
+        "sInfoThousands": ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst": "Primero",
+            "sLast": "Último",
+            "sNext": "Siguiente",
+            "sPrevious": "Anterior"
+        },
+        "oAria": {
+            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
         }
-    });
-    //$('select').material_select();
+    }
+});
+//$('select').material_select();
 
-    
+
 
 
 $(window).on('load', function () {
@@ -72,45 +72,45 @@ function onSuccess(response) {
     var path = $("#path").val();
     //$('#RowDictums').html('');
     myTable
-    .rows()
-    .remove()
-    .draw();
+            .rows()
+            .remove()
+            .draw();
     var trHTML = '';
 
 
     for (var i = 0; i < response.List.length; i++) {
 
         myTable.row.add([
-            response.List[i].NumberDictum + "-" + response.List[i].Year, 
-            response.List[i].NumberSheet, 
-            response.List[i].Description, 
-            response.List[i].DateCreate, 
-            "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\">" + response.List[i].Name + "</a>", 
-            
+            response.List[i].NumberDictum + "-" + response.List[i].Year,
+            response.List[i].NumberSheet,
+            response.List[i].Description,
+            response.List[i].DateCreate,
+            "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\">" + response.List[i].Name + "</a>",
+
             "<div class=\"cnt_btn_icons\">"
 
-                + "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\" class=\"btn btn-icon btn-icon-g\"><i class=\"fa fa-eye\"></i></a>"
-                + "<button onclick=\"deleteDictum(" + response.List[i].Id + ")\" class=\"btn btn-icon btn-icon-r\"><i class=\"fa fa-trash\"></i></button>"
+                    + "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\" class=\"btn btn-icon btn-icon-g\"><i class=\"fa fa-eye\"></i></a>"
+                    + "<button onclick=\"deleteDictum(" + response.List[i].Id + ")\" class=\"btn btn-icon btn-icon-r\"><i class=\"fa fa-trash\"></i></button>"
 
-                + "</div>"
-        
+                    + "</div>"
+
         ]);
         myTable.draw();
 
         /*trHTML += ('<tr><td>' + response.List[i].NumberDictum + "-" + response.List[i].Year + "</td>"
-                + "<td>" + response.List[i].NumberSheet + "</td>"
-                + "<td>" + response.List[i].Description + "</td>"
-                + "<td>" + response.List[i].DateCreate + "</td>"
-                + "<td>" + "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\">" + response.List[i].Name + "</a>" + "</td>"
-                + "<td>"
-
-                + "<div class=\"cnt_btn_icons\">"
-
-                + "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\" class=\"btn btn-icon btn-icon-g\"><i class=\"fa fa-eye\"></i></a>"
-                + "<button onclick=\"deleteDictum(" + response.List[i].Id + ")\" class=\"btn btn-icon btn-icon-r\"><i class=\"fa fa-trash\"></i></button>"
-
-                + "</div>"
-                + "</tr>");*/
+         + "<td>" + response.List[i].NumberSheet + "</td>"
+         + "<td>" + response.List[i].Description + "</td>"
+         + "<td>" + response.List[i].DateCreate + "</td>"
+         + "<td>" + "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\">" + response.List[i].Name + "</a>" + "</td>"
+         + "<td>"
+         
+         + "<div class=\"cnt_btn_icons\">"
+         
+         + "<a href=\"" + path + response.List[i].Path + "\" target=\"_blank\" class=\"btn btn-icon btn-icon-g\"><i class=\"fa fa-eye\"></i></a>"
+         + "<button onclick=\"deleteDictum(" + response.List[i].Id + ")\" class=\"btn btn-icon btn-icon-r\"><i class=\"fa fa-trash\"></i></button>"
+         
+         + "</div>"
+         + "</tr>");*/
 
     }
     //$('#RowDictums').html(trHTML);
@@ -125,7 +125,7 @@ function deleteDictum(id) {
     }
 
     var path = $("#path").val() + "Dictum/deleteDictumById";
-    
+
     $.ajax({
         type: "POST",
         url: path,
@@ -137,6 +137,10 @@ function deleteDictum(id) {
                 $("#alertMessageDanger2").css({"display": "none"});
                 $("#messageSuccess2").html(response.message);
 
+                $("#alertMessageSuccess2").fadeTo(3000, 500).slideUp(500, function () {
+                    $("#alertMessageSuccess2").slideUp(500);
+                });
+
                 listOfDictum();
                 //location.reload();
 
@@ -144,6 +148,10 @@ function deleteDictum(id) {
                 $("#alertMessageDanger2").removeAttr("style");
                 $("#alertMessageSuccess2").css({"display": "none"});
                 $("#messageDanger2").html(response.message);
+
+                $("#alertMessageDanger2").fadeTo(3000, 500).slideUp(500, function () {
+                    $("#alertMessageDanger2").slideUp(500);
+                });
             }
 
         }
@@ -155,8 +163,8 @@ function deleteDictum(id) {
 $(document).ready(function () {
 
 
-    
-    
+
+
     $("#form-nDictamen").submit(function () {
 
         var validator = $("#form-nDictamen").validate({/* settings */});
@@ -187,6 +195,11 @@ $(document).ready(function () {
             $("#alertMessageDanger").removeAttr("style");
             $("#alertMessageSuccess").css({"display": "none"});
             $("#messageDanger").html("El documento es requerido.");
+
+            $("#alertMessageDanger").fadeTo(3000, 500).slideUp(500, function () {
+                $("#alertMessageDanger").slideUp(500);
+            });
+
             return false;
         }
 
@@ -196,6 +209,10 @@ $(document).ready(function () {
             $("#alertMessageDanger").removeAttr("style");
             $("#alertMessageSuccess").css({"display": "none"});
             $("#messageDanger").html("El documento tiene un tamaño mayor a 5MB.");
+
+            $("#alertMessageDanger").fadeTo(3000, 500).slideUp(500, function () {
+                $("#alertMessageDanger").slideUp(500);
+            });
             return false;
         }
 
@@ -206,6 +223,10 @@ $(document).ready(function () {
                 $("#alertMessageDanger").removeAttr("style");
                 $("#alertMessageSuccess").css({"display": "none"});
                 $("#messageDanger").html("El tipo de extension del archivo: " + extension + ", es invalido");
+
+                $("#alertMessageDanger").fadeTo(3000, 500).slideUp(500, function () {
+                    $("#alertMessageDanger").slideUp(500);
+                });
 
                 return false;
         }
@@ -242,7 +263,7 @@ $(document).ready(function () {
                     if (fileName) { // returns true if the string is not empty
                         input.val('');
                     }
-                    
+
                     $("#name-file").html("");
                     $("#name-file").html("Seleccionar Archivo&hellip;");
 
@@ -251,12 +272,20 @@ $(document).ready(function () {
                     listOfDictum();
                     //location.reload();
 
+                    $("#alertMessageSuccess").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#alertMessageSuccess").slideUp(500);
+                    });
+
                 } else {
                     $("#alertMessageDanger").removeAttr("style");
                     $("#alertMessageSuccess").css({"display": "none"});
                     $("#messageDanger").html(response.message);
 
                     $("#nDic_btnSave").val("Guardar").removeAttr("disabled", "disabled");
+
+                    $("#alertMessageDanger").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#alertMessageDanger").slideUp(500);
+                    });
 
                 }
 
@@ -268,7 +297,7 @@ $(document).ready(function () {
     });
 
 
-    
+
 
 });
 
